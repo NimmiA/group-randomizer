@@ -1,4 +1,4 @@
-import { useState, type ChangeEventHandler } from 'react';
+import { useState, type ChangeEvent } from 'react';
 import { Member, Group } from '../types/types';
 import { v4 as uuidv4 } from 'uuid';
 import Papa from 'papaparse';
@@ -19,7 +19,7 @@ const GroupGenerator = () => {
     }
   };
 
-  const handleFileUpload: ChangeEventHandler<HTMLInputElement> = (event) => {
+  const handleFileUpload: ChangeEvent<HTMLInputElement> = (event) => {
     const file = event.target.files?.[0];
     if (file) {
       Papa.parse(file, {
@@ -271,6 +271,12 @@ const GroupGenerator = () => {
             </div>
           )}
         </div>
+
+        <footer className="mt-8 pt-4 border-t border-white/10 text-center">
+          <p className="text-sm text-gray-400">
+            © {new Date().getFullYear()} Nimmi Alampatta. All rights reserved.
+          </p>
+        </footer>
       </div>
     </div>
   );
